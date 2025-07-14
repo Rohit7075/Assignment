@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Photo Gallery - Real-life Problem Solver</title>
+    <link rel="stylesheet" href="style.css">
+       
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📸 Smart Photo Gallery</h1>
+            <p>Location-aware photo management with intelligent performance optimization</p>
+        </div>
+
+        <div class="network-indicator">
+            <div class="network-dot" id="networkDot"></div>
+            <span id="networkText">Checking...</span>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">☁️</div>
+                <h3>Drop your photos here or click to upload</h3>
+                <p>Supports JPG, PNG, GIF files</p>
+                <input type="file" id="fileInput" multiple accept="image/*">
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                    📁 Select Photos
+                </button>
+                <button class="btn btn-primary" onclick="requestLocationPermission()">
+                    📍 Enable Location
+                </button>
+                <button class="btn btn-secondary" id="filterNone" onclick="setFilter('none')">
+                    Original
+                </button>
+                <button class="btn btn-secondary" id="filterGrayscale" onclick="setFilter('grayscale')">
+                    Grayscale
+                </button>
+                <button class="btn btn-secondary" id="filterSepia" onclick="setFilter('sepia')">
+                    Sepia
+                </button>
+                <button class="btn btn-secondary" id="filterBlur" onclick="setFilter('blur')">
+                    Blur
+                </button>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="status">
+            <h3>📊 Gallery Status</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <div><strong id="photoCount">0</strong></div>
+                    <div>Photos Uploaded</div>
+                </div>
+                <div class="status-item">
+                    <div><strong id="locationCount">0</strong></div>
+                    <div>With Location Data</div>
+                </div>
+                <div class="status-item">
+                    <div><strong id="processedCount">0</strong></div>
+                    <div>Background Processed</div>
+                </div>
+                <div class="status-item">
+                    <div><strong id="networkType">Unknown</strong></div>
+                    <div>Connection Type</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery"></div>
+    </div>
+
+     <script src="script.js"></script>
+    
+</body>
+</html>
